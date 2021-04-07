@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 class Form extends Component {
   constructor() {
     super();
@@ -57,7 +58,7 @@ class Form extends Component {
         />
 
         <input
-          type='text'
+          type='number'
           placeholder='Number of guests'
           name='number'
           value={this.state.number}
