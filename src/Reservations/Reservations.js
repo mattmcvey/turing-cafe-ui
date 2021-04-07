@@ -1,7 +1,7 @@
 import React from 'react'
 import ReservationsCard from '../ReservationsCard/ReservationsCard'
 
-const Reservations = ({ reservations }) => {
+const Reservations = ({ reservations, cancelReservation }) => {
   const reservationCard = reservations.map(reservation => {
     return (
       <ReservationsCard
@@ -11,6 +11,7 @@ const Reservations = ({ reservations }) => {
         guests={reservation.number}
         id={reservation.id}
         key={reservation.id}
+        cancelReservation={cancelReservation}
       />
     )
   })

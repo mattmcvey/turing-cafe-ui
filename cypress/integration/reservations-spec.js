@@ -29,16 +29,16 @@ describe('Reservations Page', () => {
   it('should have a title of Turing Cafe Reservations', () => {
     cy.contains('Turing Cafe Reservations')
   })
+  it('should display cards from API on load', () => {
+    cy.contains('Christie')
+    cy.contains('Leta')
+    cy.contains('Pam')
+  })
   it('should contain text input fields', () => {
     cy.get('input').first().type('Matt').next().type('11/22').next().type('7').next().type('12')
   })
   it('should be able to submit text inputs', () => {
     cy.get('input').first().type('Matt').next().type('11/22').next().type('7').next().type('12').get('button').first().click()
-  })
-  it('should display cards from API on load', () => {
-    cy.contains('Christie')
-    cy.contains('Leta')
-    cy.contains('Pam')
   })
   it('should display newly submitted reservation', () => {
     cy.get('input').first().type('Matt').next().type('11/22').next().type('7').next().type('12').get('button').first().click().get('.card').last().contains('Matt')
