@@ -23,7 +23,10 @@ class App extends Component {
     this.setState({ reservations: [...this.state.reservations, newReservation]})
   }
 
-  cance
+  cancelReservation = (id) => {
+    const filteredReservations = this.state.reservations.filter(reservation => reservation.id !== id)
+    this.setState({ reservations: filteredReservations })
+  }
 
   render() {
     return (
@@ -33,7 +36,7 @@ class App extends Component {
           <Form addReservation={this.addReservation}/>
         </div>
         <div className='resy-container'>
-          <Reservations reservations={this.state.reservations} />
+          <Reservations reservations={this.state.reservations} cancelReservation={this.cancelReservation}/>
         </div>
       </div>
     )
