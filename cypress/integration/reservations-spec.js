@@ -35,7 +35,7 @@ describe('Reservations Page', () => {
     cy.contains('Pam')
   })
   it('should contain text input fields', () => {
-    cy.get('input').first().type('Matt').next().type('11/22').next().type('7').next().type('12')
+    cy.get('input').first().type('Matt').should('have.value', 'Matt').next().type('11/22').should('have.value', '11/22').next().type('7').should('have.value', '7').next().type(12).should('have.value', 12)
   })
   it('should be able to submit text inputs', () => {
     cy.get('input').first().type('Matt').next().type('11/22').next().type('7').next().type('12').get('button').first().click()
